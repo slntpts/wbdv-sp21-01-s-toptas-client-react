@@ -24,11 +24,11 @@ export default class CourseTable
           <thead>
               <tr>
                   <th class="col-md-4">Title</th>
-                  <th class="col-md-3 d-none d-lg-block">Owned by</th>
-                  <th class="col-md-2 d-none d-sm-none d-md-none d-lg-block">Last modified</th>
-                  <th class="col-md-1"><i class="fa fa-folder"></i></th>
-                  <th class="col-md-1"><i class="fa fa-sort col-md-1"></i></th>
-                  <th><Link to="/courses/grid">
+                  <th class="col-md-3 d-none d-md-table-cell d-lg-table-cell">Owned by</th>
+                  <th class="col-md-2 d-none d-lg-table-cell">Last modified</th>
+                  <th class="col-md-1 d-table-cell"><i class="fa fa-folder"></i></th>
+                  <th class="col-md-1 d-table-cell"><i class="fa fa-sort col-md-1"></i></th>
+                  <th class="d-block"><Link to="/courses/grid">
                         <i class = "col-md-1" className="fas fa-2x fa-th"></i>
                   </Link></th>
               </tr>

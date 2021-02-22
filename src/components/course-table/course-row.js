@@ -24,7 +24,7 @@ const CourseRow = (
 
   return (
       <tr>
-        <td>
+        <td class="">
             {
                 !editing &&
                 <Link to="/courses/editor">
@@ -39,8 +39,8 @@ const CourseRow = (
                     className="form-control"/>
             }
         </td>
-        <td class="d-none d-lg-block">{owner}</td>
-        <td class="d-none d-sm-none d-md-none d-lg-block">{lastModified}</td>
+        <td class="d-none d-md-table-cell d-lg-table-cell">{owner}</td>
+        <td class="d-none d-lg-table-cell">{lastModified}</td>
         <td></td>
         <td></td>
         <td>
