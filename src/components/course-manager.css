@@ -22,7 +22,10 @@
 }
 
 .wbdv-plus-add-course{
-    position: absolute; top: 92%; right:5%
+      position: fixed;
+      right: 15px;
+      bottom: 15px;
+      z-index: 999;
 }
 
 .wbdv-main-screen{

@@ -22,7 +22,7 @@ const CourseEditor = ({history}) => {
   <br/>
   <br/>
 
-  <div class="wbdv-padding-5px color-me-smooky color-me-smooky-text block">
+  <div class="wbdv-padding-5px color-me-smooky color-me-smooky-text">
     <div class="row">
         <div class="col-1">
             <i class="fa fa-times fa-2x"></i>

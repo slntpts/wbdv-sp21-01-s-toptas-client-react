@@ -45,6 +45,9 @@ class CourseManager extends React.Component {
       owner: "me",
       lastModified: new Date().toLocaleString()
     }
+
+    this.refs.newCourseInp.value = ""
+
     courseService.createCourse(newCourse)
         .then(course => this.setState(
             (prevState) => ({
@@ -155,7 +158,6 @@ class CourseManager extends React.Component {
                  render={(props) => <CourseEditor {...props}/>}>
           </Route>
       </div>
-
 
     )
   }
