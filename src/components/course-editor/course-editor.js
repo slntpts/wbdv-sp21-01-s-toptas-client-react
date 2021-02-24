@@ -4,6 +4,8 @@ import './course-editor.css';
 
 const CourseEditor = ({history}) => {
 
+
+
  return [
   <React.Fragment>
   <div>
@@ -18,8 +20,6 @@ const CourseEditor = ({history}) => {
     </h2>
   </div>
 
-  <br/>
-  <br/>
   <br/>
 
   <div class="wbdv-padding-5px color-me-smooky color-me-smooky-text">

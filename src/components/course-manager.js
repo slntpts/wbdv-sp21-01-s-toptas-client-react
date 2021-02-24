@@ -89,16 +89,17 @@ class CourseManager extends React.Component {
           this.setState((prevState) => ({
               ...prevState,
               courses: prevState.courses.filter
-                (course => course !== courseToDelete)
+                (course => course._id !== courseToDelete._id)
           }))
         })
   }
 
+
   render() {
+
     return(
       <div>
-
-          <div className="row wbdv-sticky-top wbdv-padding-10px">
+          <div className="row wbdv-padding-10px">
               <div className="col-1">
                   <i className="fa fa-bars fa-2x"></i>
               </div>
