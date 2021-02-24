@@ -4,8 +4,6 @@ import './course-editor.css';
 
 const CourseEditor = ({history}) => {
 
-
-
  return [
   <React.Fragment>
   <div>

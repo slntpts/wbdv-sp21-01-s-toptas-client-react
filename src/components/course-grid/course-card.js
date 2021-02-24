@@ -39,7 +39,7 @@ const CourseCard = ({
         <Link to="/courses/editor" className="btn btn-primary">
             {course.title}
         </Link>
-        <i onClick={() => deleteCourse(course)} className="fas fa-trash"></i>
+        <i onClick={() => {deleteCourse(course); setEditing(false)}} className="fas fa-trash"></i>
         {!editing && <i onClick={() => setEditing(true)} className="fas fa-edit"></i>}
         {editing && <i onClick={() => saveTitle()} className="fas fa-check"></i>}
       </div>
