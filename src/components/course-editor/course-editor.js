@@ -6,7 +6,12 @@ const CourseEditor = ({history}) => {
 
  return [
   <React.Fragment>
+
   <div>
+
+    <div class="myCanvas"></div>
+    <div class="myCanvasPlus"></div>
+
     <h2>
         <Link to="/courses/table">
             <i className="fas fa-arrow-left"></i>
@@ -21,6 +26,7 @@ const CourseEditor = ({history}) => {
   <br/>
 
   <div class="wbdv-padding-5px color-me-smooky color-me-smooky-text">
+
     <div class="row">
         <div class="col-1">
             <i class="fa fa-times fa-2x"></i>
