@@ -36,7 +36,7 @@ const CourseCard = ({
         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's
           content.</p>
           <img src={``}/>
-        <Link to="/courses/editor" className="btn btn-primary">
+        <Link to="/course-editor" className="btn btn-primary">
             {course.title}
         </Link>
         <i onClick={() => {deleteCourse(course); setEditing(false)}} className="fas fa-trash"></i>

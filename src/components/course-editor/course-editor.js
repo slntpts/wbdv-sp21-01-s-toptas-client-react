@@ -7,8 +7,22 @@ const CourseEditor = ({history}) => {
  return [
   <React.Fragment>
 
-  <div>
+  <div className="row wbdv-padding-10px">
+      <div className="col-1">
+          <i className="fa fa-bars fa-2x"></i>
+      </div>
+      <div className="col-9">
+          <h4>Course Manager</h4>
+      </div>
 
+      <div className="col-2">
+          <Link to="/">
+              <i className="fas fa-2x fa-home float-right"></i>
+          </Link>
+      </div>
+  </div>
+
+  <div>
     <div class="myCanvas"></div>
     <div class="myCanvasPlus"></div>
 
@@ -65,7 +79,7 @@ const CourseEditor = ({history}) => {
     </div>
   </div>
 
-<div class="row">
+  <div class="row">
     <div class="col-4 left-column wbdv-padding-5px">
         <ul class="list-group">
             <li class="list-group-item border-me-gray color-me-smooky color-me-smooky-text">
@@ -144,9 +158,9 @@ const CourseEditor = ({history}) => {
     </div>
 </div>
 
-  </React.Fragment>
+</React.Fragment>
 
- ]
+]
 }
 
 export default CourseEditor
