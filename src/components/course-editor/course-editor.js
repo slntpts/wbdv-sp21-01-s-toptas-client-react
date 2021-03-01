@@ -28,7 +28,9 @@ const CourseEditor = ({history}) => {
 
         <h2>
             <Link to="/courses/table">
-                <i className="fas fa-arrow-left"></i>
+                <i  onClick={() => history.goBack()}
+                    className="fas fa-arrow-left">
+                </i>
             </Link>
             Course Editor
             <i onClick={() => history.goBack()}
