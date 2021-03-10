@@ -23,11 +23,6 @@ const ModuleList = (
 
     return(<div>
         <h2>Module List</h2>
-        <ul>
-            <li>layout: {layout}</li>
-            <li>courseId: {courseId}</li>
-            <li>moduleId: {moduleId}</li>
-        </ul>
 
         <ul className="list-group">
             {

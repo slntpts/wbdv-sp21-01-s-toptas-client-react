@@ -18,10 +18,8 @@ const TopicPills = (
     useEffect(() => {
         console.log("LOAD TOPICS FOR LESSON")
         console.log(lessonId)
-        //if(lessonId !== "undefined" && typeof lessonId !== "undefined"){
-            findTopicsForLesson(lessonId)
-        //}
-    }, [lessonId])//we stop infinite loop by adding this empty array []
+        findTopicsForLesson(lessonId)
+    }, [lessonId, moduleId])//we stop infinite loop by adding this empty array []
                         //if the moduleId has changed trigger useEffect, otherwise don't.
     return (<div>
         <ul className="nav nav-pills">
