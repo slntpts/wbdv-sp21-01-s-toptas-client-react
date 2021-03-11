@@ -4,11 +4,11 @@ import './course-editor.css';
 import moduleReducer from "../../reducers/module-reducer";
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
-import ModuleList from "../module-list";
+import ModuleList from "./module-list";
 import lessonReducer from "../../reducers/lesson-reducer";
-import LessonTabs from "../lesson-tabs";
+import LessonTabs from "./lesson-tabs";
 import topicReducer from "../../reducers/topic-reducer";
-import TopicPills from "../topic-pills";
+import TopicPills from "./topic-pills";
 import {findCourseById} from "../../services/course-service";
 
 const reducer = combineReducers({
