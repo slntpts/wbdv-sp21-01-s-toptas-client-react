@@ -26,11 +26,12 @@ function App() {
             <Route path="/" exact={true}>
                 <Home/>
             </Route>
-            <Route path="/courses" exact = {true}>
+            <Route path="/courses/:layout/" exact = {true}>
                 <CourseManager/>
             </Route>
             {/*/!*use params takes the following url, parse it and provider as params(moduleId, lessonId, courseId) to moduleList*!/*/}
-            <Route path={["/courses/:layout/edit/:courseId",
+            <Route path={[
+                "/courses/:layout/edit/:courseId",
                 "/courses/:layout/edit/:courseId/modules/:moduleId",
                 "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
                 "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId"
