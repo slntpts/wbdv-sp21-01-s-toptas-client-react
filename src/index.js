@@ -23,6 +23,7 @@ import CounterRedux from "./components/counter/redux-state/counter-redux";
 //render this <App> and inject it to the "root" element
 ReactDOM.render(//ReactDOM knows how to render the dom
   <App/>,
+  //   <CounterRedux/>,
   document.getElementById('root')//Go fetch me element that has the id "root"
 );
 

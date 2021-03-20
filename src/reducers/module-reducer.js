@@ -1,4 +1,8 @@
 import React from 'react'
+import {CREATE_MODULE} from "../actions/module-actions";
+import {DELETE_MODULE} from "../actions/module-actions";
+import {UPDATE_MODULE} from "../actions/module-actions";
+import {FIND_MODULES_FOR_COURSE} from "../actions/module-actions";
 
 const initialState = {
     modules: [],
@@ -6,7 +10,7 @@ const initialState = {
 
 const moduleReducer = (state=initialState, action) => {
     switch (action.type) {
-        case "CREATE_MODULE":
+        case CREATE_MODULE:
             return {
                 //STEP1-State is returned
                 modules: [
@@ -16,7 +20,7 @@ const moduleReducer = (state=initialState, action) => {
                 //if we add newModule here, the newModule would be added prepend
                 //we are doing this to copy everything and just update the module.
             }
-        case "DELETE_MODULE":
+        case DELETE_MODULE:
             return {
                 ...state, // (sprader) copy entire state, because there is only modules, we can remove this state. Modules u zaten kopyaliyoruz alt satirda.
                 modules: state.modules.filter(module => {
@@ -27,7 +31,7 @@ const moduleReducer = (state=initialState, action) => {
                     }
                 })
             }
-        case "UPDATE_MODULE":
+        case UPDATE_MODULE:
             return {
                 //iterate over arrays and if it matches with the module that we just modified, update it otherwise keep the old one.
                 ...state,
@@ -39,7 +43,7 @@ const moduleReducer = (state=initialState, action) => {
                     }
                 })
             }
-        case "FIND_MODULES_FOR_COURSE":
+        case FIND_MODULES_FOR_COURSE:
             return{
                 ...state,
                 modules: action.modules

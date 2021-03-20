@@ -116,16 +116,11 @@ function func ([name, val]){
 func(["bar", 28])
 
 
-var x = 0, y = 0
+x = 0, y = 0
 obj = {x,y}
 console.log(obj)
 
-
-
-
-
-
-
-
-
+a = {"b": 1, "c": 2};
+x = a["c"];
+console.log(x)
 

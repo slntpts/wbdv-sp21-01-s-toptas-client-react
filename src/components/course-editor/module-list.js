@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 // import {findModulesForCourse, createModule} from "../services/module-service";
 import moduleService from "../../services/module-service";
 import lessonService from "../../services/lesson-service";
+import moduleActions from "../../actions/module-actions";
 
 const ModuleList = (
     {
@@ -55,24 +56,10 @@ const stpm = (state) => {//responsible for retrieving from the state
 const dtpm = (dispatch) => ({
     //This createModule is what we are expecting. connect (below) passes it to us. Connect passes it to use the property (createModule)
     //that we are expecting that is bound to this function and moduleList gets it in the function above in const ModuleList() so that we can invoke.
-    createModule:(courseId) => {
-        moduleService.createModule(courseId, {title: 'New Module'})
-            .then(module => dispatch({type:"CREATE_MODULE", module: module}))//we are invoking the alert inside of the module-reducer CREATE_MODULE
-    },
-    updateModule: (module) => {
-        moduleService.updateModule(module._id, module)
-            .then(status => dispatch({type:"UPDATE_MODULE", updatedModule: module}))
-    },
-    deleteModule: (module) => {
-        moduleService.deleteModule(module._id)
-            .then(status => dispatch({type: "DELETE_MODULE", moduleToDelete: module}))
-    },
-    findModulesForCourse: (courseId) => {
-        moduleService.findModulesForCourse(courseId)
-            .then(modules => dispatch({type: "FIND_MODULES_FOR_COURSE", modules: modules}))
-        // topicService.findTopicsForLesson(undefined)
-        //     .then(topics => dispatch({type: "FIND_TOPICS_FOR_LESSON", topics: topics}))
-    }
+    createModule: (courseId) => moduleActions.createModule(dispatch, courseId),
+    deleteModule: (item) => moduleActions.deleteModule(dispatch, item),
+    updateModule: (module) => moduleActions.updateModule(dispatch, module),
+    findModulesForCourse: (courseId) => moduleActions.findModulesForCourse(dispatch, courseId),
 })
 
 //STEP4-Map the module list in the moduleList array on top.

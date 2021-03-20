@@ -5,6 +5,7 @@ import CourseManager from "./components/course-manager";
 import CourseEditor from "./components/course-editor/course-editor";
 import {BrowserRouter, Route} from "react-router-dom";
 import Home from "./components/home"
+import CounterUp from "./components/counter/redux-state/counter-up";
 
 /**
  * We can create our own tags by using javascript. When we return the below scope, it will be rendered instead of
@@ -25,6 +26,7 @@ function App() {
         <div className="container-fluid">
             <Route path="/" exact={true}>
                 <Home/>
+                {/*<CounterUp/>*/}
             </Route>
             <Route path="/courses/:layout/" exact = {true}>
                 <CourseManager/>
@@ -34,7 +36,8 @@ function App() {
                 "/courses/:layout/edit/:courseId",
                 "/courses/:layout/edit/:courseId/modules/:moduleId",
                 "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
-                "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId"
+                "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId",
+                "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId/widgets/:widgetId"
             ]}
                    exact={true}
                    render={(props) => <CourseEditor {...props}/>}>

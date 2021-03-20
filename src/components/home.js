@@ -8,7 +8,7 @@ export default () =>
             <Link to="/courses/table" className="list-group-item">
                 Courses Table
             </Link>
-            <Link to="/courses/grid" className="list-group-item">
+            <Link to="/qwe/2/3" className="list-group-item">
                 Courses Grid
             </Link>
         </div>

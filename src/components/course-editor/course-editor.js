@@ -10,6 +10,7 @@ import LessonTabs from "./lesson-tabs";
 import topicReducer from "../../reducers/topic-reducer";
 import TopicPills from "./topic-pills";
 import {findCourseById} from "../../services/course-service";
+import WidgetList from "./widgets/widget-list";
 
 const reducer = combineReducers({
     //combine all reducer in one single reducer, as map-value pairs. We will determine which one we are gonna use.
@@ -26,7 +27,7 @@ const CourseEditor = ({history, params}) =>//params parses the actual link to th
 {
     const{layout, courseId, moduleId} = useParams();
 
-    const [courseTitle, setCourseTitle] = useState()
+    const [courseTitle, setCourseTitle] = useState();
 
     useEffect(() => {
 
@@ -51,7 +52,10 @@ const CourseEditor = ({history, params}) =>//params parses the actual link to th
                     </div>
                     <div className="col-9">
                         <LessonTabs/>
+                        <br/>
                         <TopicPills/>
+                        <br/>
+                        <WidgetList/>
                     </div>
                 </div>
 
