@@ -1,13 +1,44 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-const HeadingWidget = ({widget, editing}) => {
+const HeadingWidget = (
+    {
+        widget,
+        updateWidget,
+        deleteWidget,
+    }) =>
+{
+    const [isEditing, setIsEditing] = useState(false)
+    const [widgetCache, setWidgetCache] = useState(widget)
     return (
         <>
             {
-                editing &&
+                isEditing &&
                 <>
-                    <input value={widget.text} className="form-control"/>
-                    <select value={widget.size} className="form-control">
+                    <i onClick={() => {
+                        updateWidget(widgetCache)
+                        setIsEditing(false)
+                    }} className="fas fa-2x fa-check float-right"></i>
+                    <i onClick={() => {
+                        deleteWidget(widget.id)
+                        setIsEditing(false)
+                    }} className="fas fa-2x fa-trash float-right"></i>
+                </>
+            }
+
+            {
+                !isEditing &&
+                <i onClick={() => setIsEditing(true)} className="fas fa-2x fa-cog float-right"></i>
+            }
+
+            {
+                isEditing &&
+                <>
+                    <input
+                        onChange={(e) => setWidgetCache({...widgetCache, text: e.target.value})}
+                        value={widgetCache.text} className="form-control"/>
+                    <select
+                        onChange={(e) => setWidgetCache({...widgetCache, size: e.target.value})}
+                        value={widgetCache.size} className="form-control">
                         <option value={1}>Heading 1</option>
                         <option value={2}>Heading 2</option>
                         <option value={3}>Heading 3</option>
@@ -18,7 +49,7 @@ const HeadingWidget = ({widget, editing}) => {
                 </>
             }
             {
-                !editing &&
+                !isEditing &&
                 <>
                     {widget.size === 1 && <h1>{widget.text}</h1>}
                     {widget.size === 2 && <h2>{widget.text}</h2>}
@@ -31,5 +62,6 @@ const HeadingWidget = ({widget, editing}) => {
         </>
     )
 }
+
 
 export default HeadingWidget

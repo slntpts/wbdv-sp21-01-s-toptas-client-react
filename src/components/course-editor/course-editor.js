@@ -9,6 +9,7 @@ import lessonReducer from "../../reducers/lesson-reducer";
 import LessonTabs from "./lesson-tabs";
 import topicReducer from "../../reducers/topic-reducer";
 import TopicPills from "./topic-pills";
+import widgetReducer from "../../reducers/widget-reducer";
 import {findCourseById} from "../../services/course-service";
 import WidgetList from "./widgets/widget-list";
 
@@ -17,7 +18,8 @@ const reducer = combineReducers({
     //and once we do that we provide reducer as a top reducer to the createStore.
     moduleReducer: moduleReducer,
     lessonReducer: lessonReducer,
-    topicReducer: topicReducer
+    topicReducer: topicReducer,
+    widgetReducer: widgetReducer
 })
 
 const store = createStore(reducer)//we grab the store from module reducer.

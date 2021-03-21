@@ -42,9 +42,12 @@ const LessonTabs = (
                     </li>
                 )
             }
-            <li>
-                <i onClick={() => createLessonForModule(moduleId)} className="fas fa-plus"></i>
-            </li>
+            {
+                moduleId &&
+                <li>
+                    <i onClick={() => createLessonForModule(moduleId)} className="fas fa-plus"></i>
+                </li>
+            }
         </ul>
     </div>)
 }
