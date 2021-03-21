@@ -1,16 +1,44 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-const ParagraphWidget = ({widget, editing}) => {
-    return(
+const ParagraphWidget = (
+    {
+        widget,
+        updateWidget,
+        deleteWidget,
+    }) =>
+{
+    const [isEditing, setIsEditing] = useState(false)
+    const [widgetCache, setWidgetCache] = useState(widget)
+    return (
         <>
             {
-                editing &&
+                isEditing &&
                 <>
-                    <textarea value={widget.text} className="form-control"></textarea>
+                    <i onClick={() => {
+                        updateWidget(widgetCache)
+                        setIsEditing(false)
+                    }} className="fas fa-2x fa-check float-right"></i>
+                    <i onClick={() => {
+                        deleteWidget(widget.id)
+                        setIsEditing(false)
+                    }} className="fas fa-2x fa-trash float-right"></i>
+                </>
+            }
+
+            {
+                !isEditing &&
+                <i onClick={() => setIsEditing(true)} className="fas fa-2x fa-cog float-right"></i>
+            }
+            {
+                isEditing &&
+                <>
+                    <textarea
+                        onChange={(e) => setWidgetCache({...widgetCache, text: e.target.value})}
+                        value={widgetCache.text} className="form-control"></textarea>
                 </>
             }
             {
-                !editing &&
+                !isEditing &&
                 <p>
                     {widget.text}
                 </p>

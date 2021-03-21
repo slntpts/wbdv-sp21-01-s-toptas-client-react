@@ -13,7 +13,6 @@ const WidgetList = (
         updateWidget,
         deleteWidget,
     }) => {
-    //TODO: move state management to widgets-reducer.js as described in the assignment.
     const{layout, courseId, moduleId, lessonId, topicId, widgetId} = useParams()
     useEffect(() => {
         findWidgetsForTopic(topicId)
@@ -45,7 +44,9 @@ const WidgetList = (
                             }
                             {
                                 widget.type === "PARAGRAPH" &&
-                                    <ParagraphWidget widget={widget}/>
+                                    <ParagraphWidget widget={widget}
+                                    deleteWidget={deleteWidget}
+                                    updateWidget={updateWidget}/>
                             }
                         </li>
                     )
@@ -70,7 +71,7 @@ const dtpm = (dispatch) => ({
             }))
     },
     createWidgetForTopic: (topicId) => {
-        widgetService.createWidgetForTopic(topicId, {type: "HEADING", size: 1, text: "New Widget"})
+        widgetService.createWidgetForTopic(topicId, {type: "HEADING", size: 1, text: "New Widget"}) // {type: "PARAGRAPH", text: "New Widget"}
             .then(widget => dispatch({
                 type: "CREATE_WIDGET",
                 widget: widget
