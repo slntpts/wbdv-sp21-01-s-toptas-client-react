@@ -15,12 +15,12 @@ const ParagraphWidget = (
                 isEditing &&
                 <>
                     <i onClick={() => {
-                        updateWidget(widgetCache)
                         setIsEditing(false)
+                        updateWidget(widgetCache)
                     }} className="fas fa-2x fa-check float-right"></i>
                     <i onClick={() => {
-                        deleteWidget(widget.id)
                         setIsEditing(false)
+                        deleteWidget(widget.id)
                     }} className="fas fa-2x fa-trash float-right"></i>
                 </>
             }

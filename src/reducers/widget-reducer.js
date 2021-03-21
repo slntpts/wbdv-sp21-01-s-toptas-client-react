@@ -1,7 +1,7 @@
 import React from 'react'
 
 const initialState = {
-    widgets: []
+    widgets: [{type: "HEADING", size: 1, text: "Empty Widget", id: undefined}]
 }
 
 const widgetReducer = (state = initialState, action) => {
@@ -19,7 +19,7 @@ const widgetReducer = (state = initialState, action) => {
             return {
                 ...state,
                 widgets: state.widgets.filter(widget => {
-                    if(widget.id !== action.widgetToDelete.id){
+                    if(widget.id !== action.widgetToDelete){
                         return true
                     }else{
                         return false
@@ -27,6 +27,7 @@ const widgetReducer = (state = initialState, action) => {
                 })
             }
         case "UPDATE_WIDGET":
+            console.log("[WIDGET REDUCER] - HEADER UPDATED:" + action.widgetToUpdate.size)
             return{
                 ...state,
                 widgets: state.widgets.map(widget => {

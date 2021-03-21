@@ -7,7 +7,7 @@ import widgetService from '../../../services/widget-service'
 
 const WidgetList = (
     {
-        widgets = [],
+        widgets = [{type: "HEADING", size: 1, text: "Empty Widget", id: undefined}],
         findWidgetsForTopic,
         createWidgetForTopic,
         updateWidget,
@@ -15,6 +15,7 @@ const WidgetList = (
     }) => {
     const{layout, courseId, moduleId, lessonId, topicId, widgetId} = useParams()
     useEffect(() => {
+        console.log("LOAD WIDGETS FOR TOPIC")
         findWidgetsForTopic(topicId)
     }, [topicId, lessonId])//to not end up with a infinite loop we are adding this [topicId] array here.
     return(
@@ -26,7 +27,6 @@ const WidgetList = (
                     createWidgetForTopic(topicId)
                 }} className="fas fa-plus float-right fa-2x"></i>
             }
-            {JSON.stringify(topicId)}
 
             <h1>Widget List ({widgets.length}) </h1>
 
@@ -78,6 +78,7 @@ const dtpm = (dispatch) => ({
             }))
     },
     updateWidget: (widgetToUpdate) => {
+        console.log("WIDGETS HEADER UPDATED:" + widgetToUpdate.size)
         widgetService.updateWidget(widgetToUpdate)
             .then(status => dispatch({type:"UPDATE_WIDGET", widgetToUpdate: widgetToUpdate}))
     },

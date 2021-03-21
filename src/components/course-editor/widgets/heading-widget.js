@@ -15,12 +15,12 @@ const HeadingWidget = (
                 isEditing &&
                 <>
                     <i onClick={() => {
-                        updateWidget(widgetCache)
                         setIsEditing(false)
+                        updateWidget(widgetCache)
                     }} className="fas fa-2x fa-check float-right"></i>
                     <i onClick={() => {
-                        deleteWidget(widget.id)
                         setIsEditing(false)
+                        deleteWidget(widget.id)
                     }} className="fas fa-2x fa-trash float-right"></i>
                 </>
             }
@@ -37,7 +37,7 @@ const HeadingWidget = (
                         onChange={(e) => setWidgetCache({...widgetCache, text: e.target.value})}
                         value={widgetCache.text} className="form-control"/>
                     <select
-                        onChange={(e) => setWidgetCache({...widgetCache, size: e.target.value})}
+                        onChange={(e) => setWidgetCache({...widgetCache, size: Number(e.target.value)})}
                         value={widgetCache.size} className="form-control">
                         <option value={1}>Heading 1</option>
                         <option value={2}>Heading 2</option>
