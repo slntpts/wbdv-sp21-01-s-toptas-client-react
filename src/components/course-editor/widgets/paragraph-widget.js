@@ -32,6 +32,17 @@ const ParagraphWidget = (
             {
                 isEditing &&
                 <>
+                    <select
+                        onChange={(e) => setWidgetCache({...widgetCache, type: e.target.value})}
+                        value={widgetCache.type} className="form-control">
+                        <option value={"HEADING"}>Heading</option>
+                        <option value={"PARAGRAPH"}>Paragraph</option>
+                        <option value={widget.type}>Video</option>
+                        <option value={widget.type}>Image</option>
+                        <option value={widget.type}>Link</option>
+                        <option value={widget.type}>List</option>
+                        <option value={widget.type}>HTML</option>
+                    </select>
                     <textarea
                         onChange={(e) => setWidgetCache({...widgetCache, text: e.target.value})}
                         value={widgetCache.text} className="form-control"></textarea>

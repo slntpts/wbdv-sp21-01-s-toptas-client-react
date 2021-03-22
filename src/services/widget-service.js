@@ -1,5 +1,7 @@
+const HEROKU_URL = "https://cs5610-sp21-stoptas-javaserver.herokuapp.com/";
+
 export const createWidgetForTopic = (topicId, widget) =>
-    fetch(`http://localhost:8080/api/topics/${topicId}/widgets`, {
+    fetch(`http://HEROKU_URL/api/topics/${topicId}/widgets`, {
         method: 'POST',
         body: JSON.stringify(widget),
         headers: {
@@ -9,7 +11,7 @@ export const createWidgetForTopic = (topicId, widget) =>
         .then(response => response.json());
 
 export const updateWidget = (widget) =>
-    fetch(`http://localhost:8080/api/widgets/${widget.id}`, {
+    fetch(`http://HEROKU_URL/api/widgets/${widget.id}`, {
         method: "PUT",
         body: JSON.stringify(widget),
         headers: {
@@ -19,14 +21,18 @@ export const updateWidget = (widget) =>
         .then(response => response.json());
 
 export const deleteWidget = (wid) =>
-    fetch(`http://localhost:8080/api/widgets/${wid}`, {
+    fetch(`http://HEROKU_URL/api/widgets/${wid}`, {
         method: "DELETE",
     })
 
 export const findWidgetsForTopic = (topicId) =>
     //we need to fetch the widgets data before update it.
-    fetch(`http://localhost:8080/api/topics/${topicId}/widgets`)
+    fetch(`http://HEROKU_URL/api/topics/${topicId}/widgets`)
         .then(response => response.json());
+
+
+//TODO: findAllWidgets()
+//TODO: findWidgetById()
 
 export default{
     createWidgetForTopic, updateWidget, deleteWidget, findWidgetsForTopic
