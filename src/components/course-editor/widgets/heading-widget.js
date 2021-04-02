@@ -12,44 +12,42 @@ const HeadingWidget = (
     return (
         <>
             {
-                isEditing &&
+                widget.isEditing &&
                 <>
                     <i onClick={() => {
-                        setIsEditing(false)
-                        updateWidget(widgetCache)
+                        updateWidget({...widget, isEditing: false})
                     }} className="fas fa-2x fa-check float-right"></i>
                     <i onClick={() => {
-                        setIsEditing(false)
                         deleteWidget(widget.id)
                     }} className="fas fa-2x fa-trash float-right"></i>
                 </>
             }
 
             {
-                !isEditing &&
-                <i onClick={() => setIsEditing(true)} className="fas fa-2x fa-cog float-right"></i>
+                !widget.isEditing &&
+                <i onClick={() => updateWidget({...widget, isEditing: true})} className="fas fa-2x fa-cog float-right"></i>
             }
 
             {
-                isEditing &&
+                widget.isEditing &&
                 <>
                     <select
-                        onChange={(e) => setWidgetCache({...widgetCache, type: e.target.value})}
-                        value={widgetCache.type} className="form-control">
+                        onChange={(e) => updateWidget({...widget, type: e.target.value})}
+                        value={widget.type} className="form-control">
                         <option value={"HEADING"}>Heading</option>
                         <option value={"PARAGRAPH"}>Paragraph</option>
-                        <option value={widget.type}>Video</option>
-                        <option value={widget.type}>Image</option>
-                        <option value={widget.type}>Link</option>
-                        <option value={widget.type}>List</option>
-                        <option value={widget.type}>HTML</option>
+                        <option value={"VIDEO"}>Video - Invalid Type! Need to remove the widget from db if selected</option>
+                        <option value={"IMAGE"}>Image</option>
+                        <option value={"LINK"}>Link - Invalid Type! Need to remove the widget from db if selected</option>
+                        <option value={"LIST"}>List</option>
+                        <option value={"HTML"}>HTML - Invalid Type! Need to remove the widget from db if selected</option>
                     </select>
                     <input
-                        onChange={(e) => setWidgetCache({...widgetCache, text: e.target.value})}
-                        value={widgetCache.text} className="form-control"/>
+                        onChange={(e) => updateWidget({...widget, text: e.target.value})}
+                        value={widget.text} className="form-control"/>
                     <select
-                        onChange={(e) => setWidgetCache({...widgetCache, size: Number(e.target.value)})}
-                        value={widgetCache.size} className="form-control">
+                        onChange={(e) => updateWidget({...widget, size: Number(e.target.value)})}
+                        value={widget.size} className="form-control">
                         <option value={1}>Heading 1</option>
                         <option value={2}>Heading 2</option>
                         <option value={3}>Heading 3</option>
@@ -60,7 +58,7 @@ const HeadingWidget = (
                 </>
             }
             {
-                !isEditing &&
+                !widget.isEditing &&
                 <>
                     {widget.size === 1 && <h1>{widget.text}</h1>}
                     {widget.size === 2 && <h2>{widget.text}</h2>}
