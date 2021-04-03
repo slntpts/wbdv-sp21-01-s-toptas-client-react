@@ -9,7 +9,7 @@ import ImageWidget from "./image-widget";
 
 const WidgetList = (
     {
-        widgets = [{type: "HEADING", size: 1, text: "Empty Widget", id: undefined}],
+        widgets = [{type: "HEADING", size: 1, text: "Empty Widget", id: undefined, isEditing: false}],
         findWidgetsForTopic,
         createWidgetForTopic,
         updateWidget,

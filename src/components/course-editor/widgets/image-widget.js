@@ -43,8 +43,11 @@ const ImageWidget = (
                     </select>
 
                     <>
+                        URL
                         <input value={widget.src} className="form-control"/>
+                        width
                         <input value={widget.width} className="form-control"/>
+                        height
                         <input value={widget.height} className="form-control"/>
                     </>
 
