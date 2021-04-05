@@ -6,15 +6,22 @@ const ImageWidget = (
         updateWidget,
         deleteWidget,
     }) => {
-    const [isEditing, setIsEditing] = useState(false)
-    const [widgetCache, setWidgetCache] = useState(widget)
+    const [srcValue, setSrcValue] = useState(widget.src);
+    const [widthValue, setWidthValue] = useState(widget.width);
+    const [heightValue, setHeightValue] = useState(widget.height);
     return (
         <>
             {
                 widget.isEditing &&
                 <>
                     <i onClick={() => {
-                        updateWidget({...widget, isEditing: false})
+                        updateWidget({
+                            ...widget,
+                            isEditing: false,
+                            src: srcValue,
+                            width: widthValue,
+                            height: heightValue
+                        })
                     }} className="fas fa-2x fa-check float-right"></i>
                     <i onClick={() => {
                         deleteWidget(widget.id)
@@ -31,36 +38,33 @@ const ImageWidget = (
                 widget.isEditing &&
                 <>
                     <select
-                        onChange={(e) => updateWidget({...widget, type: e.target.value})}
+                        onChange={(e) => updateWidget({...widget, type: e.target.value })}
                         value={widget.type} className="form-control">
                         <option value={"HEADING"}>Heading</option>
                         <option value={"PARAGRAPH"}>Paragraph</option>
-                        <option value={"VIDEO"}>Video - Invalid Type! Need to remove the widget from db if selected</option>
+                        <option value={"VIDEO"}>Video - Invalid Type! Need to remove the widget from db if selected
+                        </option>
                         <option value={"IMAGE"}>Image</option>
-                        <option value={"LINK"}>Link - Invalid Type! Need to remove the widget from db if selected</option>
+                        <option value={"LINK"}>Link - Invalid Type! Need to remove the widget from db if selected
+                        </option>
                         <option value={"LIST"}>List</option>
-                        <option value={"HTML"}>HTML - Invalid Type! Need to remove the widget from db if selected</option>
+                        <option value={"HTML"}>HTML - Invalid Type! Need to remove the widget from db if selected
+                        </option>
                     </select>
 
-                    <>
-                        URL
-                        <input value={widget.src} className="form-control"/>
-                        width
-                        <input value={widget.width} className="form-control"/>
-                        height
-                        <input value={widget.height} className="form-control"/>
-                    </>
 
-
-                    {/*<>*/}
-                    {/*    <input checked={widget.ordered} type="checkbox"/> Ordered*/}
-                    {/*    <br/>*/}
-                    {/*    Item List*/}
-                    {/*    <textarea*/}
-                    {/*        onChange={(e) => setWidgetCache({...widgetCache, text: e.target.value})}*/}
-                    {/*        value={widgetCache.text} rows={10} className="form-control"></textarea>*/}
-                    {/*</>*/}
-
+                    URL
+                    <input
+                        onChange={(e) => setSrcValue(e.target.value)}
+                        value={srcValue} className="form-control"/>
+                    width
+                    <input
+                        onChange={(e) => setWidthValue(Number(e.target.value))}
+                        value={widthValue} className="form-control"/>
+                    height
+                    <input
+                        onChange={(e) => setHeightValue(Number(e.target.value))}
+                        value={heightValue} className="form-control"/>
                 </>
             }
 
