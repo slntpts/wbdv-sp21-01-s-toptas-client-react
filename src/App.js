@@ -6,6 +6,8 @@ import CourseEditor from "./components/course-editor/course-editor";
 import {BrowserRouter, Route} from "react-router-dom";
 import Home from "./components/home"
 import CounterUp from "./components/counter/redux-state/counter-up";
+import QuizzesList from "./components/quizzes/quizzes-list";
+import Quiz from "./components/quizzes/quiz";
 
 /**
  * We can create our own tags by using javascript. When we return the below scope, it will be rendered instead of
@@ -21,6 +23,7 @@ import CounterUp from "./components/counter/redux-state/counter-up";
  *
  */
 function App() {
+
   return (
       <BrowserRouter>
         <div className="container-fluid">
@@ -30,6 +33,12 @@ function App() {
             </Route>
             <Route path="/courses/:layout/" exact = {true}>
                 <CourseManager/>
+            </Route>
+            <Route path="/courses/:courseId/quizzes" exact = {true}>
+                <QuizzesList/>
+            </Route>
+            <Route path="/courses/:courseId/quizzes/:quizId" exact = {true}>
+                <Quiz/>
             </Route>
             {/*/!*use params takes the following url, parse it and provider as params(moduleId, lessonId, courseId) to moduleList*!/*/}
             <Route path={[

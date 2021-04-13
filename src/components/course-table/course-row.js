@@ -41,6 +41,12 @@ const CourseRow = (
         </td>
         <td class="d-none d-md-table-cell d-lg-table-cell">{owner}</td>
         <td class="d-none d-lg-table-cell">{lastModified}</td>
+          <td>
+              <Link
+                  to = {`/courses/${course._id}/quizzes`}>
+                  Quizzes
+              </Link>
+          </td>
         <td></td>
         <td></td>
         <td>

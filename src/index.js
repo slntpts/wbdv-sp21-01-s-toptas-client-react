@@ -9,6 +9,14 @@ import HelloClass from "./hello-class";
 import reportWebVitals from './reportWebVitals';
 import CounterReact from "./components/counter/react-state/counter-react";
 import CounterRedux from "./components/counter/redux-state/counter-redux";
+import {combineReducers, createStore} from "redux";
+import moduleReducer from "./reducers/module-reducer";
+import lessonReducer from "./reducers/lesson-reducer";
+import topicReducer from "./reducers/topic-reducer";
+import widgetReducer from "./reducers/widget-reducer";
+import quizReducer from "./reducers/quiz-reducer";
+import questionReducer from "./reducers/question-reducer";
+import {Provider} from "react-redux";
 
 //ReactDOM.render(
 //  <React.StrictMode>
@@ -20,11 +28,26 @@ import CounterRedux from "./components/counter/redux-state/counter-redux";
 //  document.getElementById('root')
 //);
 
+const reducer = combineReducers({
+    //combine all reducer in one single reducer, as map-value pairs. We will determine which one we are gonna use.
+    //and once we do that we provide reducer as a top reducer to the createStore.
+    moduleReducer: moduleReducer,
+    lessonReducer: lessonReducer,
+    topicReducer: topicReducer,
+    widgetReducer: widgetReducer,
+    quizReducer : quizReducer,
+    questionReducer : questionReducer
+})
+
+const store = createStore(reducer)//we grab the store from module reducer.
+//STEP2- and store goes to the <ModuleList/> below
+
 //render this <App> and inject it to the "root" element
-ReactDOM.render(//ReactDOM knows how to render the dom
-  <App/>,
-  //   <CounterRedux/>,
-  document.getElementById('root')//Go fetch me element that has the id "root"
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
