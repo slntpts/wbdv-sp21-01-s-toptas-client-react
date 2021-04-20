@@ -1,4 +1,4 @@
-const HEROKU_URL = "https://cs5610-sp21-stoptas-javaserver.herokuapp.com/";
+const HEROKU_URL = "https://cs5610-sp21-stoptas-javaserver.herokuapp.com";
 
 export const createWidgetForTopic = (topicId, widget) =>
     fetch(`${HEROKU_URL}/api/topics/${topicId}/widgets`, {
