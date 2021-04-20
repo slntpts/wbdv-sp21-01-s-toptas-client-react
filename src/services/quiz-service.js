@@ -7,6 +7,25 @@ const findQuizById = (qid) => {
     return fetch(`${QUIZZES_URL}/${qid}`)
         .then(response => response.json())
 }
+
+const submitQuiz = (qid, questions) => {
+
+    console.log(JSON.stringify(questions))
+
+    return fetch(`${QUIZZES_URL}/${qid}/attempts`, {
+        method: 'POST',
+        body: JSON.stringify(questions),
+        headers: {
+            'content-type': 'application/json'
+        }
+    }).then(response => response.json())
+}
+
+const findAttemptsById = (qid) => {
+    return fetch(`${QUIZZES_URL}/${qid}/attempts`)
+        .then(response => response.json())
+}
+
 export default {
-    findAllQuizzes, findQuizById
+    findAllQuizzes, findQuizById, submitQuiz, findAttemptsById
 }

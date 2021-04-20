@@ -1,17 +1,16 @@
 import React, {useState} from "react";
 
 const MultipleChoiceQuestion = ({question, isGrading}) => {
-    const [yourAnswer, setYourAnswer] = useState("")
     return(
         <div>
             <h5>
                 {question.question}
                 {
-                    question.correct === yourAnswer &&
+                    question.correct === question.answer &&
                     <i className="fas fa-check"></i>
                 }
                 {
-                    question.correct !== yourAnswer &&
+                    question.correct !== question.answer &&
                     <i className="fas fa-times"></i>
                 }
             </h5>
@@ -21,10 +20,10 @@ const MultipleChoiceQuestion = ({question, isGrading}) => {
                         return(
 
                             <li className={`list-group-item
-                            ${ isGrading && (choice === question.correct) ? 'list-group-item-success' :  (yourAnswer === choice ? (yourAnswer == question.correct ? 'list-group-item-success' : 'list-group-item-danger') : '' )}`}>
+                            ${ isGrading && (choice === question.correct) ? 'list-group-item-success' :  (question.answer === choice ? (question.answer == question.correct ? 'list-group-item-success' : 'list-group-item-danger') : '' )}`}>
                                 <label><input
                                     onClick={() => {
-                                        setYourAnswer(choice)
+                                        question.answer = choice
                                     }}
                                     type="radio"
                                     name={question._id}/> {choice}</label>
@@ -34,7 +33,7 @@ const MultipleChoiceQuestion = ({question, isGrading}) => {
                 }
             </ul>
             <p>
-                Your answer: {yourAnswer}
+                Your answer: {question.answer}
             </p>
             <p>{question.correct}</p>
             <p></p>

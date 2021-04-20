@@ -1,7 +1,8 @@
 import React from 'react'
 
 const initialState = {
-    quizzes: []
+    quizzes: [],
+    attempts: []
 }
 
 const quizReducer = (state = initialState, action) => {
@@ -11,6 +12,11 @@ const quizReducer = (state = initialState, action) => {
             return{
                 ...state,
                 quizzes: action.quizzes
+            }
+        case "FIND_ATTEMPTS":
+            return{
+                ...state,
+                attempts: action.attempts
             }
         default:
             return state
