@@ -31,7 +31,7 @@ function App() {
                 <Home/>
                 {/*<CounterUp/>*/}
             </Route>
-            <Route path="/courses/:layout/" exact = {true}>
+            <Route path="/courses/:layout" exact = {true}>
                 <CourseManager/>
             </Route>
             <Route path="/courses/:courseId/quizzes" exact = {true}>
